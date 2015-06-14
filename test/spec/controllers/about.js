@@ -3,7 +3,7 @@
 describe('Controller: AboutCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('pooIhmExemplesApp'));
+  beforeEach(module('IHM_Service_Rest'));
 
   var AboutCtrl,
     scope;

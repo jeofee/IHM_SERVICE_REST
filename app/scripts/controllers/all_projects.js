@@ -1,24 +1,16 @@
-'use strict';
-
-/**
- * @ngdoc function
- * @name pooIhmExemplesApp.controller:AboutCtrl
- * @description
- * # AboutCtrl
- * Controller of the pooIhmExemplesApp
- */
 angular.module('IHM_Service_Rest')
-  .controller('UsersCtrl', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
+  .controller('ProjectsCtrl', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
 
+    var service_REST = "http://poo-ihm-2015-rest.herokuapp.com/api/";
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
 
-    $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Users')
+    $http.get("http://poo-ihm-2015-rest.herokuapp.com/api/Projects")
       .success(function(data) {
-        $scope.users = data.data;
+        $scope.projects = data.data;
         //Permet de controller l'affichage de la liste avec un bouton
         $scope.myVar = false;
         $scope.Cach_Affic = "Cache";
@@ -35,11 +27,11 @@ angular.module('IHM_Service_Rest')
       });
 
     if($routeParams.userId) {
-      $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Users/' + $routeParams.userId)
-      .success(function(data) {
-        if (data.status == "success") {
-          $scope.currentUser = data.data;
-        }
-      });
+      $http.get(service_REST +"Projects/" + $routeParams.ProjectId)
+        .success(function(data) {
+          if (data.status == "success") {
+            $scope.currentProject = data.data;
+          }
+        });
     }
   }]);

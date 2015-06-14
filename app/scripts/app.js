@@ -32,9 +32,14 @@ angular
         controller: 'UsersCtrl'
       })
       .when('/users/:userId', {
-        templateUrl: 'views/Users/show.html',
+        templateUrl: '../views/Users/all_projects.html',
         controller: 'UsersCtrl'
       })
+      .when('/projects' , {
+        templateUrl: '../views/Projects/all_projects.html',
+        controller: 'ProjectsCtrl'
+      })
+
       .otherwise({
         redirectTo: '/'
       });
