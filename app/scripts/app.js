@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc overview
- * @name pooIhmExemplesApp
+ * @name IHM_Service_Rest
  * @description
  * # pooIhmExemplesApp
  *
  * Main module of the application.
  */
 angular
-  .module('pooIhmExemplesApp', [
+  .module('IHM_Service_Rest', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
@@ -28,7 +28,7 @@ angular
         controller: 'AboutCtrl'
       })
       .when('/users' , {
-        templateUrl: 'views/Users/list.html',
+        templateUrl: '../views/Users/all_users.html',
         controller: 'UsersCtrl'
       })
       .when('/users/:userId', {

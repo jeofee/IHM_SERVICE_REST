@@ -7,8 +7,9 @@
  * # AboutCtrl
  * Controller of the pooIhmExemplesApp
  */
-angular.module('pooIhmExemplesApp')
+angular.module('IHM_Service_Rest')
   .controller('UsersCtrl', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
+
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',

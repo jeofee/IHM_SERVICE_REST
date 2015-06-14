@@ -1,5 +1,5 @@
 {
-  "name": "poo-ihm-exemples",
+  "name": "IHM_Service_Rest",
   "version": "0.0.0",
   "dependencies": {
     "angular": "^1.3.0",
@@ -15,5 +15,5 @@
     "angular-mocks": "^1.3.0"
   },
   "appPath": "app",
-  "moduleName": "pooIhmExemplesApp"
+  "moduleName": "IHM_Service_Rest"
 }

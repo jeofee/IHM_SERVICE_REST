@@ -1,0 +1,46 @@
+<!--
+<div>
+<h3>Liste des utilisateurs:</h3>
+<ul>
+<li ng-repeat="user in users"> {{user.name}}, {{user.surname}}</li>
+</ul>
+</div>
+-->
+
+
+
+<div>
+  <h3 class="Titre_all_users">Liste de tous les utilisateurs avec leurs n° d'identifiants, leurs NOM, Prénom, email (si elle existe):</h3>
+
+  <p class="Paragraphe_all_users">
+    Vous pouvez filtrer la liste de tous les utilisateurs (Users) en insérant l'identifiant ou une à plusieurs lettres d'un nom, prénom ou même
+    email.
+    <br>
+    Il n'y a pas besoin de connaitre les utilisateurs pour filtrer la liste.
+    <br>
+    Essayez de taper pour commencer une lettre et vous verrez la liste qui tend à diminuer.
+    <br>
+    Pour retrouver toutes la liste des utilisateurs par défaut, effacer tout simplement les caractèrs que vous avez
+    insérer dans la barre de filtre.
+  </p>
+
+  <p><input type="text" ng-model="test"></p>
+
+  <table class ="Liste_des_utilisateurs">
+    <tr>
+      <!--<td>n°</td> -->
+      <td class = "Nom_tableau_users">n° identifiant</td>
+      <td class = "Nom_tableau_users">NOM</td>
+      <td class = "Nom_tableau_users">Prénom</td>
+      <td class = "Nom_tableau_users">email</td>
+    </tr>
+    <tr ng-repeat="user in users | filter:test ">
+      <!--<td>{{ $index + 1 }}</td> -->
+      <td> {{ user.id }}</td>
+      <td>{{ user.name }} </td>
+      <td>{{user.surname}}</td>
+      <td>{{ user.email }}</td>
+    </tr>
+  </table>
+
+</div>

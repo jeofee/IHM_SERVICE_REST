@@ -12,10 +12,12 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
+    <!--C'EST ICI QU'ON AJOUTE LES DIFFERENTES FEUILLES CSS QUI SONT ASSOCIE A NOS PAGES -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/all_users.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="pooIhmExemplesApp">
+  <body ng-app="IHM_Service_Rest">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -32,16 +34,16 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-
-            <a class="navbar-brand" href="#/">pooIhmExemples</a>
+            <!-- C'EST ICI QU'EST AFFICHE LE TITRE DEVANT LES BOUTONS HOME, ABOUT ... -->
+            <a class="navbar-brand" href="#/">Gestion d'un annuaire de profiles</a>
           </div>
 
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
-
+            <!-- C'EST ICI QU'ON PEUT RAJOUTER DES BOUTONS DANS LA BARRE DU HAUT AFIN DE RAJOUTER DE NOUVELLE PAGE HTML -->
             <ul class="nav navbar-nav">
               <li class="active"><a href="#/">Home</a></li>
               <li><a ng-href="#/about">About</a></li>
-              <li><a ng-href="#/users">Utilisateurs</a></li>
+              <li><a ng-href="#/users">All Users</a></li>
             </ul>
           </div>
         </div>
@@ -51,10 +53,12 @@
     <div class="container">
     <div ng-view=""></div>
     </div>
-
+    <!-- C'EST ICI QU'ON GERE LE PIED DE PAGE -->
     <div class="footer">
       <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+        <p><span class="glyphicon glyphicon-heart"></span> de MAUREL Héloïse, étudiante Polytech à Nice-Sophia Antipolis </p>
+        <p><span class="glyphicon glyphicon-heart"></span> Matière : IHM </p>
+        <p><span class="glyphicon glyphicon-heart"></span> Enseignant : PIGHETTI Romaric </p>
       </div>
     </div>
 
@@ -84,11 +88,12 @@
     <!-- endbower -->
     <!-- endbuild -->
 
+    <!-- C'EST ICI QU'ON AJOUTE LES SCRIPT POUR LES CONTROLEURS ! -->
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
-        <script src="scripts/controllers/users.js"></script>
+        <script src="scripts/controllers/all_users.js"></script>
         <!-- endbuild -->
 </body>
 </html>
