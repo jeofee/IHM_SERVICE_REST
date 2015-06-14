@@ -32,8 +32,9 @@ angular.module('IHM_Service_Rest')
             $scope.Cach_Affic = "Cache";
           }
         }
-      });
 
+      });
+    /*
     if($routeParams.userId) {
       $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Users/' + $routeParams.userId)
       .success(function(data) {
@@ -41,5 +42,23 @@ angular.module('IHM_Service_Rest')
           $scope.currentUser = data.data;
         }
       });
+    }
+    */
+  }])
+  .service('Suppression', ['$http', function Suppression($http, $scope){
+    var REST = 'http://poo-ihm-2015-rest.herokuapp.com/api/';
+    $scope.idActuel = 0;
+
+    this.supressionUser = function(id,success){
+
+      $http.delete(REST +'Users/' + $scope.idActuel)
+        .success(function(data) {
+          console.log(data);
+          console.log(data.data);
+          success(data);
+
+
+        })
+        .error();
     }
   }]);
