@@ -1,0 +1,54 @@
+<form name="reviewForm">
+  <!--  Live Preview -->
+  <blockquote>
+    <strong>Création d'un utilisateur</strong>
+
+    <cite class="clearfix">Vous avez plusieurs champs à remplir notammment le NOM, le prénom, l'adresse mail(falcultative) et le website(falcultatif).
+    Vous avez également deux champs à selectionner : les projets pour lesquels l'utilisateur a bénéficié ainsi que ses rôles dans ses projets</cite>
+  </blockquote>
+
+  <!--  Review Form -->
+  <h4>NOM</h4>
+  <fieldset class="form-group">
+    <input type="name" class="form-control" placeholder="NOM" title="NOM" ng-model="nom"/>
+  </fieldset>
+  <h4>Prénom</h4>
+  <fieldset class="form-group">
+    <input type="prenom" class="form-control" placeholder="Prénom" title="Prénom" ng-model="prenom"/>
+  </fieldset>
+  <p>nom = {{nom}}</p>
+  <p>prenom = {{prenom}}</p>
+  <p>data = {{json}}</p>
+  <h4>Email</h4>
+  <fieldset class="form-group">
+    <input type="email" class="form-control" placeholder="NOMPrénom@example.org" title="Email" ng-model="email"/>
+  </fieldset>
+  <h4>Website</h4>
+  <fieldset class="form-group">
+    <input type="website" class="form-control" placeholder="www.example.com" title="Website" ng-model="website"/>
+  </fieldset>
+  <h4>Selection des rôles</h4>
+  <fieldset class="form-group">
+    <select ng-model="roles" class="form-control" ng-options="stars for stars in [5,4,3,2,1]"  title="Rôles">
+      <option value="">rôle 1</option>
+      <option value="">rôle 2</option>
+      <option value="">rôle 3</option>
+      <option value="">rôle 4</option>
+    </select>
+  </fieldset>
+  <h4>Selection des projets</h4>
+  <fieldset class="form-group">
+    <select ng-model="projects" class="form-control" ng-options="stars for stars in [5,4,3,2,1]"  title="Projects">
+      <option value="">projet 1</option>
+      <option value="">projet 2</option>
+      <option value="">projet 3</option>
+      <option value="">projet 4</option>
+    </select>
+  </fieldset>
+
+  <fieldset class="form-group">
+    <input type="submit" class="btn btn-primary pull-right" ng-click="toggle(nom, prenom, email, website)" value="Créer l'utilisateur" />
+
+  </fieldset>
+</form>
+

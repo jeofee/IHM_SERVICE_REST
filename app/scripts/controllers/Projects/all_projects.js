@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('IHM_Service_Rest')
   .controller('ProjectsCtrl', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
 
