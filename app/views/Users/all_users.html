@@ -32,7 +32,6 @@
     <li>soit vous filtrez l'utilisateur à l'aide de la barre de saisie et vous cliquez sur le bouton "supprimer
       l'utilisateur filtré" qui est situé sur la même ligne que les informations concernant l'utilisateur considéré</li>
   </ul>
-  </p>
 
   <table class ="Tableau_boutons">
       <tr>
@@ -48,16 +47,19 @@
 
 
 
-  <table class ="Liste_des_utilisateurs" ng-hide="myVar" >
+  <table class ="Liste_des_utilisateurs" ng-hide="myVar"  >
     <tr>
       <!--<td>n°</td> -->
-      <td class = "Nom_tableau_users">indice</td>
+      <td class = "Nom_tableau_users">Indice</td>
       <td class = "Nom_tableau_users">n° identifiant</td>
       <td class = "Nom_tableau_users">NOM</td>
       <td class = "Nom_tableau_users">Prénom</td>
-      <td class = "Nom_tableau_users">email</td>
+      <td class = "Nom_tableau_users">Email</td>
+      <td class = "Nom_tableau_users">Adresse site web</td>
       <td class = "Nom_tableau_users">Cliquez-ici pour supprimer un utilisateur</td>
       <td class = "Nom_tableau_users">Cliquez-ici pour modifier un utilisateur</td>
+      <td class = "Nom_tableau_users">Projets associées aux rôles</td>
+
     </tr>
     <tr ng-repeat="user in users | filter:test " >
       <td>{{ $index + 1 }}</td>
@@ -65,11 +67,36 @@
       <td>{{ user.name }} </td>
       <td>{{user.surname}}</td>
       <td>{{ user.email }}</td>
+      <td>{{ user.website }}</td>
       <td><button ng-click="supressionUser(user.id, $index)"> Supprimer l'utilisateur filtré</button></td>
       <td><button ng-click="recuperationUser(user.id, user.name, user.surname, user.email, user.website)">Modification de l'utilisateur</button></td>
-
+      <td class = "role_et_projet">
+        <ul >
+          <li ng-repeat="role in Roles | filter:user.id" >
+            Role : {{ role.name }} -
+            <span ng-repeat="projet in Projects | filter:role.ProjectId">
+              Titre du projet : {{projet.title}}
+            </span>
+          </li>
+        </ul>
+      </td>
+      <!--
+      <td><button ng-click="RechercheRoleForUser(user.id, user.name, user.surname, user.email, user.website)">Afficher les roles de cet utilisateur</button></td>
+    -->
     </tr>
   </table>
+
+  <div>
+    <p ng-show="rechercheRoleEstVrai">
+      Nom : {{name}}
+      Prénom : {{surname}}
+      <table>
+        <tr ng-repeat="role in namesRoles">
+          <td>{{role.name}}</td>
+        </tr>
+      </table>
+    </p>
+  </div>
 
   <h3 class="Titre_all_users">Modification de l'utilisateur filtré:</h3>
 

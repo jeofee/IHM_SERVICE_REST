@@ -18,6 +18,61 @@ angular.module('IHM_Service_Rest')
 
     var REST = 'http://poo-ihm-2015-rest.herokuapp.com/api/';
 
+
+    $scope.rechercheRoleEstVrai = false;
+
+    $scope.RechercheRoleForUser = function (id, name, surname, email, website) {
+      $http.get(REST + 'Users/'+ id+'/Roles')
+        .success(function (data) {
+          $scope.namesRoles = data.data; //On obtient ici un tableau contenant des objects
+          //$scope.RechercheRoleForUserId= namesRoles[0].name;
+          $scope.id = id;
+          $scope.name = name;
+          $scope.surname = surname;
+          $scope.email = email;
+          $scope.website = website;
+          $scope.rechercheRoleEstVrai = true;
+          success(data);
+        });
+
+
+
+    };
+
+    $scope.RechercheRoles = function () {
+      $http.get(REST + '/Roles')
+        .success(function (data) {
+          $scope.Roles = data.data; //On obtient ici un tableau contenant des objects
+
+          success(data);
+        });
+
+
+
+    };
+
+    $scope.RechercheProjects = function () {
+      $http.get(REST + '/Projects')
+        .success(function (data) {
+          $scope.Projects = data.data; //On obtient ici un tableau contenant des objects
+
+          success(data);
+        });
+
+
+
+    };
+/*
+    $scope.getFirst = function(){
+      $http.get(REST + 'Users/')
+        .success(function (data) {
+          $scope.users = data.data;
+          return users[0];
+        });
+    };
+
+*/
+
     $scope.recuperationUser = function(id, name, surname, email, website){
       $scope.id = id;
       $scope.name = name;
@@ -73,6 +128,8 @@ angular.module('IHM_Service_Rest')
       .success(function(data) {
         $scope.users = data.data;
         //Permet de controller l'affichage de la liste avec un bouton
+        $scope.RechercheRoles();
+        $scope.RechercheProjects();
         $scope.myVar = false;
         $scope.Cach_Affic = "Cacher";
 
