@@ -22,6 +22,36 @@ angular.module('IHM_Service_Rest')
      */
     var REST = 'http://poo-ihm-2015-rest.herokuapp.com/api/';
 
+    $scope.recuperationProject = function(id, title, description, year){
+      $scope.id = id;
+      $scope.title = title;
+      $scope.description = description;
+      $scope.year = year;
+      $scope.modificationclique = false;
+
+    };
+
+    $scope.modificationProject = function(title, description, year){
+      $http.put(REST +'Projects/' + $scope.id, {
+        "title":title,
+        "description":description,
+        "year":year
+      })
+        .success(function(data) {
+          $scope.projects.push({
+            "id":$scope.id,
+            "title":title,
+            "description":description,
+            "year":year
+          });
+          //$scope.users.splice(index,1);
+          console.log(data);
+          console.log(data.data);
+          success(data);
+
+        })
+        .error();
+    };
 
     $scope.supressionProject = function(id,index){
       $http.delete(REST +'Projects/' + id)

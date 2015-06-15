@@ -46,8 +46,7 @@
       <td class = "Nom_tableau_projects">titre</td>
       <td class = "Nom_tableau_projects">description</td>
       <td class = "Nom_tableau_projects">cliquez-ici pour supprimer un projet</td>
-
-
+      <td class = "Nom_tableau_projects">cliquez-ici pour modifier un projet</td>
     </tr>
     <tr ng-repeat="project in projects | filter:test ">
       <td>{{ $index + 1 }}</td>
@@ -56,9 +55,63 @@
       <td>{{ project.title }} </td>
       <td>{{ project.description}}</td>
       <td><button ng-click="supressionProject(project.id, $index)"> Supprimer le projet filtré</button></td>
+      <td><button ng-click="recuperationProject(project.id, project.title, project.description, project.year)">Modification du projet</button></td>
 
 
     </tr>
   </table>
 
 </div>
+
+  <div ng-init="modificationclique=true" ng-hide="modificationclique">
+  <h3 class="Titre_all_users"  >Modification du projet filtré:</h3>
+
+  <form name="reviewForm">
+    <!--  Live Preview -->
+    <blockquote>
+      <strong>Modification d'un projet</strong>
+
+      <cite class="clearfix">Vous avez plusieurs champs à modifier.
+        </cite>
+    </blockquote>
+
+    <!--  Review Form -->
+    <h4>Titre</h4>
+    <fieldset class="form-group">
+      <input type="titre" class="form-control" placeholder="Titre" title="titre" ng-model="title"/>
+    </fieldset>
+    <h4>Description</h4>
+    <fieldset class="form-group">
+      <input type="description" class="form-control" placeholder="Description" title="description" ng-model="description"/>
+    </fieldset>
+    <h4>Année de création du projet</h4>
+    <fieldset class="form-group">
+      <input type="date" class="form-control" placeholder="date" title="Email" ng-model="year"/>
+    </fieldset>
+    <h4>Selection des rôles</h4>
+    <fieldset class="form-group">
+      <select ng-model="roles" class="form-control" ng-options="stars for stars in [5,4,3,2,1]"  title="Rôles">
+        <option value="">rôle 1</option>
+        <option value="">rôle 2</option>
+        <option value="">rôle 3</option>
+        <option value="">rôle 4</option>
+      </select>
+    </fieldset>
+    <h4>Selection des utilisateurs</h4>
+    <fieldset class="form-group">
+      <select ng-model="utilisateurs" class="form-control" ng-options="stars for stars in [5,4,3,2,1]"  title="Projects">
+        <option value="">utilisateur 1</option>
+        <option value="">utilisateur 2</option>
+        <option value="">utilisateur 3</option>
+        <option value="">utilisateur 4</option>
+      </select>
+    </fieldset>
+
+    <fieldset class="form-group">
+      <input type="submit" class="btn btn-primary pull-right" ng-click="modificationProject( title, description, year)" value="Modifier le projet" />
+
+    </fieldset>
+  </form>
+
+  </div>
+

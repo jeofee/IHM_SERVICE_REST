@@ -58,7 +58,7 @@
       <td class = "Nom_tableau_users">Adresse site web</td>
       <td class = "Nom_tableau_users">Cliquez-ici pour supprimer un utilisateur</td>
       <td class = "Nom_tableau_users">Cliquez-ici pour modifier un utilisateur</td>
-      <td class = "Nom_tableau_users">Projets associées aux rôles</td>
+      <td class = "Nom_tableau_users">Projets associés aux rôles</td>
 
     </tr>
     <tr ng-repeat="user in users | filter:test " >
@@ -85,7 +85,7 @@
     -->
     </tr>
   </table>
-
+  <!--
   <div>
     <p ng-show="rechercheRoleEstVrai">
       Nom : {{name}}
@@ -97,7 +97,10 @@
       </table>
     </p>
   </div>
+  -->
+</div>
 
+  <div ng-init="modificationclique=true" ng-hide="modificationclique">
   <h3 class="Titre_all_users">Modification de l'utilisateur filtré:</h3>
 
   <form name="reviewForm">
@@ -150,7 +153,8 @@
 
     </fieldset>
   </form>
+  </div>
 
 
 
-</div>
+

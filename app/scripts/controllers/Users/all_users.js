@@ -79,6 +79,7 @@ angular.module('IHM_Service_Rest')
       $scope.surname = surname;
       $scope.email = email;
       $scope.website = website;
+      $scope.modificationclique = false;
 
     };
 
@@ -101,8 +102,6 @@ angular.module('IHM_Service_Rest')
           console.log(data);
           console.log(data.data);
           success(data);
-
-
 
         })
         .error();
