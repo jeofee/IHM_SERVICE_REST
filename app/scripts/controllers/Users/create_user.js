@@ -19,6 +19,7 @@ angular.module('IHM_Service_Rest')
     $scope.projects = [];
 
 
+
     $scope.toggle = function(nom, prenom, email, website,success, unsuccess) {
       $http.post(REST +'Users/', {
         "name":nom,
@@ -35,7 +36,7 @@ angular.module('IHM_Service_Rest')
 
         })
         .error();
-    }
+    };
 
 
   }]);

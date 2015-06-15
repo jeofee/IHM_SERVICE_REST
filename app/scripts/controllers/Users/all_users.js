@@ -18,6 +18,41 @@ angular.module('IHM_Service_Rest')
 
     var REST = 'http://poo-ihm-2015-rest.herokuapp.com/api/';
 
+    $scope.recuperationUser = function(id, name, surname, email, website){
+      $scope.id = id;
+      $scope.name = name;
+      $scope.surname = surname;
+      $scope.email = email;
+      $scope.website = website;
+
+    };
+
+    $scope.modificationUser = function( nom, prenom, email, website){
+      $http.put(REST +'Users/' + $scope.id, {
+        "name":nom,
+        "surname":prenom,
+        "email":email,
+        "website":website
+      })
+        .success(function(data) {
+          $scope.users.push({
+            "id":$scope.id,
+            "name":nom,
+            "surname":prenom,
+            "email":email,
+            "website":website
+          });
+          //$scope.users.splice(index,1);
+          console.log(data);
+          console.log(data.data);
+          success(data);
+
+
+
+        })
+        .error();
+    };
+
 
     $scope.supressionUser = function(id,index){
       $http.delete(REST +'Users/' + id)
@@ -31,7 +66,7 @@ angular.module('IHM_Service_Rest')
 
         })
         .error();
-    }
+    };
 
 
     $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Users')
@@ -43,13 +78,13 @@ angular.module('IHM_Service_Rest')
 
         $scope.toggle = function() {
           $scope.myVar = !$scope.myVar;
-          if($scope.myVar == true){
+          if($scope.myVar === true){
             $scope.Cach_Affic = 'Afficher';
           }
           else{
             $scope.Cach_Affic = 'Cacher';
           }
-        }
+        };
 
       });
     /*

@@ -9,7 +9,7 @@
 
 
 
-<div ng-init="idActuel=0" >
+<div >
   <h3 class="Titre_all_users">Liste de tous les utilisateurs avec leurs n° d'identifiants, leurs NOM, Prénom, email (si elle existe):</h3>
 
   <p class="Paragraphe_all_users">
@@ -57,6 +57,7 @@
       <td class = "Nom_tableau_users">Prénom</td>
       <td class = "Nom_tableau_users">email</td>
       <td class = "Nom_tableau_users">Cliquez-ici pour supprimer un utilisateur</td>
+      <td class = "Nom_tableau_users">Cliquez-ici pour modifier un utilisateur</td>
     </tr>
     <tr ng-repeat="user in users | filter:test " >
       <td>{{ $index + 1 }}</td>
@@ -65,8 +66,64 @@
       <td>{{user.surname}}</td>
       <td>{{ user.email }}</td>
       <td><button ng-click="supressionUser(user.id, $index)"> Supprimer l'utilisateur filtré</button></td>
+      <td><button ng-click="recuperationUser(user.id, user.name, user.surname, user.email, user.website)">Modification de l'utilisateur</button></td>
 
     </tr>
   </table>
+
+  <h3 class="Titre_all_users">Modification de l'utilisateur filtré:</h3>
+
+  <form name="reviewForm">
+    <!--  Live Preview -->
+    <blockquote>
+      <strong>Création d'un utilisateur</strong>
+
+      <cite class="clearfix">Vous avez plusieurs champs à remplir notammment le NOM, le prénom, l'adresse mail(falcultative) et le website(falcultatif).
+        Vous avez également deux champs à selectionner : les projets pour lesquels l'utilisateur a bénéficié ainsi que ses rôles dans ses projets</cite>
+    </blockquote>
+
+    <!--  Review Form -->
+    <h4>NOM</h4>
+    <fieldset class="form-group">
+      <input type="name" class="form-control" placeholder="Nom" title="NOM" ng-model="name"/>
+    </fieldset>
+    <h4>Prénom</h4>
+    <fieldset class="form-group">
+      <input type="prenom" class="form-control" placeholder="Prénom" title="Prénom" ng-model="surname"/>
+    </fieldset>
+    <h4>Email</h4>
+    <fieldset class="form-group">
+      <input type="email" class="form-control" placeholder="NOMPrénom@example.org" title="Email" ng-model="email"/>
+    </fieldset>
+    <h4>Website</h4>
+    <fieldset class="form-group">
+      <input type="website" class="form-control" placeholder="www.example.com" title="Website" ng-model="website"/>
+    </fieldset>
+    <h4>Selection des rôles</h4>
+    <fieldset class="form-group">
+      <select ng-model="roles" class="form-control" ng-options="stars for stars in [5,4,3,2,1]"  title="Rôles">
+        <option value="">rôle 1</option>
+        <option value="">rôle 2</option>
+        <option value="">rôle 3</option>
+        <option value="">rôle 4</option>
+      </select>
+    </fieldset>
+    <h4>Selection des projets</h4>
+    <fieldset class="form-group">
+      <select ng-model="projects" class="form-control" ng-options="stars for stars in [5,4,3,2,1]"  title="Projects">
+        <option value="">projet 1</option>
+        <option value="">projet 2</option>
+        <option value="">projet 3</option>
+        <option value="">projet 4</option>
+      </select>
+    </fieldset>
+
+    <fieldset class="form-group">
+      <input type="submit" class="btn btn-primary pull-right" ng-click="modificationUser( nom, prenom, email, website)" value="Modifier l'utilisateur" />
+
+    </fieldset>
+  </form>
+
+
 
 </div>
