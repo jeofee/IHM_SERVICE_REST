@@ -22,16 +22,22 @@
     <br>
     Pour retrouver toutes la liste des projets par défaut, après avoir filtré, effacez tout simplement les caractères que vous avez
     insérés dans la barre de filtre.
+    <br>
+    <br>
+    <br>
+    Il est possible également de supprimer un projet de 2 manières différentes :
+  <ul class="Paragraphe_all_users">
+    <li>soit vous cherchez dans la liste complète, l'utilisateur que vous voulez supprimer et vous cliquez sur le bouton "supprimer
+      l'utilisateur filtré" qui est situé sur la même ligne que les informations concernant l'utilisateur considéré</li>
+    <li>soit vous filtrez l'utilisateur à l'aide de la barre de saisie et vous cliquez sur le bouton "supprimer
+      l'utilisateur filtré" qui est situé sur la même ligne que les informations concernant l'utilisateur considéré</li>
+  </ul>
   </p>
 
   <table class ="Tableau_boutons">
       <tr>
         <td>
           <button ng-click="toggle()"><span ng-bind="Cach_Affic"></span> la liste entièrement</button>
-        </td>
-        <td>
-          <button ng-click="supressionUser(idActuel)"> Supprimer l'utilisateur filtré</button>
-
         </td>
       </tr>
     <tr>
@@ -42,21 +48,24 @@
 
 
 
-  {{idActuel}}
-  <table class ="Liste_des_utilisateurs" ng-hide="myVar">
+  <table class ="Liste_des_utilisateurs" ng-hide="myVar" >
     <tr>
       <!--<td>n°</td> -->
+      <td class = "Nom_tableau_users">indice</td>
       <td class = "Nom_tableau_users">n° identifiant</td>
       <td class = "Nom_tableau_users">NOM</td>
       <td class = "Nom_tableau_users">Prénom</td>
       <td class = "Nom_tableau_users">email</td>
+      <td class = "Nom_tableau_users">Cliquez-ici pour supprimer un utilisateur</td>
     </tr>
-    <tr ng-repeat="user in users | filter:test ">
-      {{idActuel = user.id}}
+    <tr ng-repeat="user in users | filter:test " >
+      <td>{{ $index + 1 }}</td>
       <td> {{ user.id }}</td>
       <td>{{ user.name }} </td>
       <td>{{user.surname}}</td>
       <td>{{ user.email }}</td>
+      <td><button ng-click="supressionUser(user.id, $index)"> Supprimer l'utilisateur filtré</button></td>
+
     </tr>
   </table>
 

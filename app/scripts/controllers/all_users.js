@@ -16,20 +16,38 @@ angular.module('IHM_Service_Rest')
       'Karma'
     ];
 
+    var REST = 'http://poo-ihm-2015-rest.herokuapp.com/api/';
+
+
+    $scope.supressionUser = function(id,index){
+      $http.delete(REST +'Users/' + id)
+        .success(function(data) {
+          $scope.users.splice(index,1);
+          console.log(data);
+          console.log(data.data);
+          success(data);
+
+
+
+        })
+        .error();
+    }
+
+
     $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Users')
       .success(function(data) {
         $scope.users = data.data;
         //Permet de controller l'affichage de la liste avec un bouton
         $scope.myVar = false;
-        $scope.Cach_Affic = "Cache";
+        $scope.Cach_Affic = "Cacher";
 
         $scope.toggle = function() {
           $scope.myVar = !$scope.myVar;
           if($scope.myVar == true){
-            $scope.Cach_Affic = "Affiche";
+            $scope.Cach_Affic = 'Afficher';
           }
           else{
-            $scope.Cach_Affic = "Cache";
+            $scope.Cach_Affic = 'Cacher';
           }
         }
 
@@ -43,10 +61,12 @@ angular.module('IHM_Service_Rest')
         }
       });
     }
-    */
+
   }])
+     */
+  /*
   .service('Suppression', ['$http', function Suppression($http, $scope){
-    var REST = 'http://poo-ihm-2015-rest.herokuapp.com/api/';
+
     $scope.idActuel = 0;
 
     this.supressionUser = function(id,success){
@@ -61,4 +81,5 @@ angular.module('IHM_Service_Rest')
         })
         .error();
     }
+    */
   }]);
