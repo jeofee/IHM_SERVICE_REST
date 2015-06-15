@@ -1,10 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+<form name="reviewForm">
+  <!--  Live Preview -->
+  <blockquote>
+    <strong>Création d'un projet</strong>
 
-</body>
-</html>
+    <cite class="clearfix">Vous avez plusieurs champs à remplir notammment le titre du projet, la petite description et l'année de création du projet.
+      Vous avez également deux champs à selectionner : les utilisateurs qui ont contribués au projet ainsi que leurs rôles dans ce projet
+    Remplissez les champs libre, cliquez sur le bouton "création du projet".
+    </cite>
+
+    Remarque : Afin de vérifier que le projet est bien créé nous vous conseillons de vous dirigez vers l'onglet <a href="http://localhost:9000/#/projects" target="_blank" title="All projects" >"All Projects"</a> afin
+    de verifier que le projet que vous avez crée est bien dans la base de données.
+  </blockquote>
+
+  <!--  Review Form -->
+  <h4>Titre du projet</h4>
+  <fieldset class="form-group">
+    <input type="titre" class="form-control" placeholder="Titre" title="titre" ng-model="title"/>
+  </fieldset>
+  <h4>Description</h4>
+  <fieldset class="form-group">
+    <textarea type="description" class="form-control" placeholder="Ecrivez ici une petite description du projet" title="description" ng-model="description"/>
+    </textarea>
+  </fieldset>
+
+  <h4>Année de création du projet</h4>
+  <fieldset class="form-group">
+    <input type="year" class="form-control" placeholder="Ecrivez ici l'année de commencement du projet exemple : 2015" title="year" ng-model="year"/>
+  </fieldset>
+  <h4>Selection des rôles</h4>
+  <fieldset class="form-group">
+    <select ng-model="roles" class="form-control" ng-options="stars for stars in [5,4,3,2,1]"  title="Rôles">
+      <option value="">rôle 1</option>
+      <option value="">rôle 2</option>
+      <option value="">rôle 3</option>
+      <option value="">rôle 4</option>
+    </select>
+  </fieldset>
+  <h4>Selection des utilisateurs qui ont contribués au projet</h4>
+  <fieldset class="form-group">
+    <select ng-model="projects" class="form-control" ng-options="stars for stars in [5,4,3,2,1]"  title="Projects">
+      <option value="">utilisateur 1</option>
+      <option value="">utilisateur 2</option>
+      <option value="">utilisateur 3</option>
+      <option value="">utilisateur 4</option>
+    </select>
+  </fieldset>
+
+  <fieldset class="form-group">
+    <input type="submit" class="btn btn-primary pull-right" ng-click="toggle(title, description, year)" value="Créer le projet" />
+
+  </fieldset>
+</form>
+
+

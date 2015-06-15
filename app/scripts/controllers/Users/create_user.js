@@ -17,8 +17,6 @@ angular.module('IHM_Service_Rest')
     $scope.website = '';
     $scope.roles = [];
     $scope.projects = [];
-    $scope.object = {};
-    $scope.json = {};
 
 
     $scope.toggle = function(nom, prenom, email, website,success, unsuccess) {

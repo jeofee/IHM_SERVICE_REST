@@ -3,7 +3,7 @@
 angular.module('IHM_Service_Rest')
   .controller('ProjectsCtrl', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
 
-    var service_REST = "http://poo-ihm-2015-rest.herokuapp.com/api/";
+    var service_REST = 'http://poo-ihm-2015-rest.herokuapp.com/api/';
 
     $scope.unUser = {};
 
@@ -34,12 +34,12 @@ angular.module('IHM_Service_Rest')
         .error();
     }
 
-    $http.get("http://poo-ihm-2015-rest.herokuapp.com/api/Projects")
+    $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Projects')
       .success(function(data) {
         $scope.projects = data.data;
         //Permet de controller l'affichage de la liste avec un bouton
         $scope.myVar = false;
-        $scope.Cach_Affic = "Cacher";
+        $scope.Cach_Affic = 'Cacher';
 
         $scope.toggle = function() {
           $scope.myVar = !$scope.myVar;
@@ -54,7 +54,7 @@ angular.module('IHM_Service_Rest')
       });
 
     if($routeParams.userId) {
-      $http.get(service_REST +"Projects/" + $routeParams.ProjectId)
+      $http.get(service_REST +'Projects/' + $routeParams.ProjectId)
         .success(function(data) {
           if (data.status === 'success') {
             $scope.currentProject = data.data;
