@@ -47,6 +47,8 @@
       <td class = "Nom_tableau_projects">description</td>
       <td class = "Nom_tableau_projects">cliquez-ici pour supprimer un projet</td>
       <td class = "Nom_tableau_projects">cliquez-ici pour modifier un projet</td>
+      <td class = "Nom_tableau_projects">Utilisateurs du projet</td>
+
     </tr>
     <tr ng-repeat="project in projects | filter:test ">
       <td>{{ $index + 1 }}</td>
@@ -56,6 +58,19 @@
       <td>{{ project.description}}</td>
       <td><button ng-click="supressionProject(project.id, $index)"> Supprimer le projet filtré</button></td>
       <td><button ng-click="recuperationProject(project.id, project.title, project.description, project.year)">Modification du projet</button></td>
+      <td class = "role_et_utilisateur">
+        <ul ng-repeat="role in Roles | filter:project.id">
+          <li ng-if="role != null">
+            <!--On a un role avec un ProjectID et un UserID -->
+            <!-- ProjectID : {{ role.ProjectId}}<br> -->
+
+            <span ng-repeat="user in users | filter:role.UserId">
+                Nom du contributeur : {{user.name}} , {{user.surname}}<br>
+                Role du contributeur : {{role.name}}
+            </span>
+          </li>
+        </ul>
+      </td>
 
 
     </tr>

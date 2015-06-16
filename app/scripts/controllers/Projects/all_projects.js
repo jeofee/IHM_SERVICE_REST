@@ -22,6 +22,27 @@ angular.module('IHM_Service_Rest')
      */
     var REST = 'http://poo-ihm-2015-rest.herokuapp.com/api/';
 
+    $scope.RechercheRoles = function () {
+      $http.get(REST + '/Roles')
+        .success(function (data) {
+          $scope.Roles = data.data; //On obtient ici un tableau contenant des objects
+
+          success(data);
+        });
+    };
+
+    $scope.RechercheUsers = function () {
+      $http.get(REST + '/Users')
+        .success(function (data) {
+          $scope.users = data.data; //On obtient ici un tableau contenant des objects
+
+          success(data);
+        });
+
+
+
+    };
+
     $scope.recuperationProject = function(id, title, description, year){
       $scope.id = id;
       $scope.title = title;
@@ -67,6 +88,8 @@ angular.module('IHM_Service_Rest')
     $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Projects')
       .success(function(data) {
         $scope.projects = data.data;
+        $scope.RechercheRoles();
+        $scope.RechercheUsers();
         //Permet de controller l'affichage de la liste avec un bouton
         $scope.myVar = false;
         $scope.Cach_Affic = 'Cacher';
